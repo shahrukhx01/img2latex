@@ -11,7 +11,7 @@ from data import *
 
 def train():
     
-    vocab = Vocabulary('data/im2latex_formulas.norm.csv')
+    vocab = Vocabulary('im2latex_formulas.norm.csv')
     vocab.build_vocabulary()
     transform = transforms.Compose([transforms.Resize((160, 480)), transforms.ToTensor(),])
 
@@ -32,7 +32,7 @@ def train():
     batch_size = 64
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    train_loader, train_dataset = get_loader( "data/formula_images_processed/formula_images_processed/", "data/im2latex_train.csv", 
+    train_loader, train_dataset = get_loader( "formula_images_processed/formula_images_processed/", "im2latex_train.csv", 
                                             vocab, transform, batch_size=batch_size)
 
 
