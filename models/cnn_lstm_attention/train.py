@@ -4,14 +4,13 @@ import torch.nn as nn
 import torch.optim as optim
 import torchvision.transforms as transforms
 from torch.utils.tensorboard import SummaryWriter
-from utils.utils import save_checkpoint, load_checkpoint
-from models.cnn_lstm_attention.model import EncoderDecoderAttn
-from data.data import *
+from utils import save_checkpoint, load_checkpoint
+from model import EncoderDecoderAttn
+from data import *
 
 
 def train():
     
-
     vocab = Vocabulary('data/im2latex_formulas.norm.csv')
     vocab.build_vocabulary()
     transform = transforms.Compose([transforms.Resize((160, 480)), transforms.ToTensor(),])
